@@ -24,8 +24,17 @@
         .nav-container { max-width: 1280px; margin: auto; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; position: relative; overflow: hidden; }
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 120px 24px 60px; /* Fix: Added top padding to clear the nav and prevent tag cutoff */
+            position: relative; 
+            overflow: hidden; 
+        }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(212,175,55,0.05) 0%, transparent 70%); pointer-events: none; }
+        .hero-title { font-size: 7.5rem; line-height: 0.95; color: white; margin-bottom: 0px; } /* Fix: Adjusted line height */
         .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
         
         .stats-bar { max-width: 1280px; margin: auto; padding: 0 24px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
@@ -52,36 +61,17 @@
         
         .footer-container { max-width: 1280px; margin: auto; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
 
-        /* --- IPHONE & MOBILE OPTIMIZATIONS --- */
         @media (max-width: 900px) {
-            .hero-title { font-size: 4.5rem !important; margin-bottom: 8px !important; }
+            .hero-title { font-size: 4.5rem !important; }
             .about-grid, .portfolio-grid, .team-grid-inner, .press-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-            
-            /* Nav Fixes */
-            .nav-container { padding: 16px !important; }
-            .nav-links { gap: 16px !important; }
             .nav-links a:not(.btn-outline) { display: none; } 
             .btn-outline.nav-btn { padding: 10px 16px !important; font-size: 0.6rem !important; }
-            
-            /* Button Stacking */
             .hero-buttons { flex-direction: column; width: 100%; }
-            .btn-gold, .btn-outline { width: 100%; text-align: center; padding: 16px 24px !important; }
-            
-            /* Stats Bar Fixes */
-            .stats-bar { gap: 30px 15px !important; justify-content: center !important; }
+            .btn-gold, .btn-outline { width: 100%; text-align: center; }
+            .stats-bar { gap: 30px 15px !important; }
             .stat-item { width: 40%; } 
-            
-            /* Spacing adjustments */
             section { padding: 80px 24px !important; }
-            .portfolio-card, .team-card { padding: 24px !important; height: auto; }
-            
-            /* Timeline wrap */
-            .timeline-item { flex-direction: column; gap: 8px; }
-            .timeline-year { min-width: auto; }
-            
-            /* Footer Fixes */
-            .footer-container { flex-direction: column; text-align: center; justify-content: center; align-items: center; }
-            .footer-links, .legal-links { justify-content: center; flex-wrap: wrap; width: 100%; }
+            .footer-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -105,13 +95,13 @@
 </nav>
 
 <section class="hero">
-    <div style="max-width:1280px;margin:auto;width:100%;margin-top:40px;">
+    <div style="max-width:1280px;margin:auto;width:100%;">
         <div style="margin-bottom:24px;display:flex;align-items:center;gap:16px;">
-            <div style="width:6px;height:80px;background:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.4);"></div>
-            <span class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;">WEST JORDAN, UTAH — EST. 2016</span>
+            <div style="width:6px;height:60px;background:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.4);"></div>
+            <span class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;line-height:1;">WEST JORDAN, UTAH — EST. 2016</span>
         </div>
-        <h1 class="font-display hero-title" style="font-size:7.5rem;line-height:0.88;color:white;margin-bottom:8px;">TOPAZ</h1>
-        <h1 class="font-display hero-title accent" style="font-size:7.5rem;line-height:0.88;margin-bottom:40px;">HOLDINGS.</h1>
+        <h1 class="font-display hero-title">TOPAZ</h1>
+        <h1 class="font-display hero-title accent" style="margin-bottom:40px;">HOLDINGS.</h1>
         <p style="color:#9ca3af;max-width:520px;font-size:1rem;line-height:1.8;margin-bottom:48px;">A West Jordan-based private holding group dominating the last yard of the residential consumer journey. Founded in 2016, we build, own, and operate the essential services Utah homeowners rely on every day.</p>
         <div class="hero-buttons">
             <a href="#portfolio" class="btn-gold">View Portfolio</a>
