@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topaz Holdings | West Valley Residential Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1421; /* Deep Midnight Navy */
+            --accent: #d4af37;  /* Metallic Gold */
+            --bg-light: #ffffff;
+            --section-bg: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: -5px;
+        }
+
+        /* --- Stats/Mission (TOP Marketing Style) --- */
+        .mission-bar {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* --- Portfolio Section --- */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .baby-co {
+            border: 1px solid #eaeaea;
+            padding: 40px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            position: relative;
+            background: white;
+        }
+
+        .baby-co:hover {
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .baby-co h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .baby-tag {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* --- Marketing/Recruiting Section --- */
+        .growth-section {
+            background: var(--section-bg);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .growth-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            filter: brightness(1.1);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .mission-bar { gap: 20px; font-size: 0.7rem; }
+            .logo-text { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-text">Topaz</h1>
+        <div class="logo-sub">Holdings</div>
+    </header>
+
+    <div class="mission-bar">
+        <span>People</span>
+        <span>Opportunity</span>
+        <span>Results</span>
+    </div>
+
+    <section class="container">
+        <h2 class="section-title">The Portfolio</h2>
+        <div class="portfolio-grid">
+            
+            <div class="baby-co">
+                <span class="baby-tag">Residential Logistics</span>
+                <h3>Alder Residential</h3>
+                <p>Premier waste management and bin valet services. Specializing in STR compliance and neighborhood aesthetics.</p>
+            </div>
+
+            <div class="baby-co">
+                <span class="baby-tag">Acquisition Arm</span>
+                <h3>Topaz Field Marketing</h3>
+                <p>The core engine of Topaz Holdings. Expert-level face-to-face customer acquisition for home security and smart automation.</p>
+            </div>
+
+            <div class="baby-co">
+                <span class="baby-tag">Infrastructure</span>
+                <h3>CurbID Logistics</h3>
+                <p>High-visibility property identification and industrial stenciling. Enhancing neighborhood safety and emergency response.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="growth-section">
+        <div class="growth-content">
+            <h2 class="section-title">Built on Performance</h2>
+            <p>Topaz Holdings is a West Jordan-based private equity and management firm. We specialize in the "Last Yard" of the consumer journey. By owning the specialized services that homeowners rely on daily, we create a synergistic ecosystem of residential excellence.</p>
+            <p>Our focus is on dominating the Salt Lake Valley market through elite field logistics and unwavering brand standards.</p>
+            <a href="mailto:contact@topazholdings.com" class="cta-btn">Inquire for Partnership</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Topaz Holdings Group | All Rights Reserved</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">West Jordan, Utah</p>
+    </footer>
+
+</body>
+</html>
