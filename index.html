@@ -1,209 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topaz Holdings | West Valley Residential Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TOPAZ HOLDINGS — West Jordan, Utah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --primary: #0a1421; /* Deep Midnight Navy */
-            --accent: #d4af37;  /* Metallic Gold */
-            --bg-light: #ffffff;
-            --section-bg: #f9f9f9;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* --- Header --- */
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--accent);
-        }
-
-        .logo-text {
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .logo-sub {
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: -5px;
-        }
-
-        /* --- Stats/Mission (TOP Marketing Style) --- */
-        .mission-bar {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        /* --- Portfolio Section --- */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: var(--primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .baby-co {
-            border: 1px solid #eaeaea;
-            padding: 40px;
-            border-radius: 12px;
-            transition: all 0.4s ease;
-            position: relative;
-            background: white;
-        }
-
-        .baby-co:hover {
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            transform: translateY(-5px);
-        }
-
-        .baby-co h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .baby-tag {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* --- Marketing/Recruiting Section --- */
-        .growth-section {
-            background: var(--section-bg);
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .growth-content {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: var(--primary);
-            color: rgba(255,255,255,0.6);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .cta-btn {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            display: inline-block;
-            margin-top: 30px;
-            transition: 0.3s;
-        }
-
-        .cta-btn:hover {
-            filter: brightness(1.1);
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .mission-bar { gap: 20px; font-size: 0.7rem; }
-            .logo-text { font-size: 2.5rem; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #080808; color: #e5e7eb; font-family: 'DM Sans', sans-serif; scroll-behavior: smooth; }
+        .font-display { font-family: 'Bebas Neue', sans-serif; }
+        .grid-bg { background-image: radial-gradient(circle at 2px 2px, rgba(212,175,55,0.1) 1px, transparent 0); background-size: 40px 40px; }
+        .glass { background: rgba(14,14,14,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.1); }
+        .accent { color: #d4af37; }
+        .gold-line { height: 1px; background: linear-gradient(90deg, transparent, #d4af37, transparent); }
+        nav { position: fixed; top: 0; width: 100%; z-index: 50; background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 24px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%, rgba(212,175,55,0.05) 0%, transparent 70%); pointer-events: none; }
+        .portfolio-card { background: rgba(14,14,14,0.8); border: 1px solid rgba(212,175,55,0.1); padding: 40px; transition: all 0.25s; }
+        .portfolio-card:hover { border-color: #d4af37; box-shadow: 0 0 30px rgba(212,175,55,0.12); transform: translateY(-4px); }
+        .team-card { background: rgba(14,14,14,0.8); border: 1px solid rgba(212,175,55,0.1); padding: 36px; transition: all 0.25s; text-align: center; }
+        .team-card:hover { border-color: rgba(212,175,55,0.4); }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: rgba(212,175,55,0.08); border: 2px solid rgba(212,175,55,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #d4af37; letter-spacing: 0.05em; }
+        .avatar.president { width: 100px; height: 100px; font-size: 2.2rem; border-color: #d4af37; background: rgba(212,175,55,0.12); box-shadow: 0 0 30px rgba(212,175,55,0.2); }
+        .btn-gold { background: #d4af37; color: #080808; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 18px 48px; display: inline-block; transition: all 0.2s; text-decoration: none; }
+        .btn-gold:hover { background: #c4a030; box-shadow: 0 0 24px rgba(212,175,55,0.3); }
+        .btn-outline { border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-weight: 600; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 40px; display: inline-block; transition: all 0.2s; text-decoration: none; }
+        .btn-outline:hover { border-color: #d4af37; background: rgba(212,175,55,0.06); }
+        .tag { font-size: 0.6rem; border: 1px solid rgba(212,175,55,0.2); color: #9ca3af; padding: 4px 12px; letter-spacing: 0.1em; text-transform: uppercase; display: inline-block; }
+        .timeline-item { display: flex; gap: 24px; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .timeline-year { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #d4af37; min-width: 80px; letter-spacing: 0.05em; }
+        @media (max-width: 900px) {
+            .hero-title { font-size: 4rem !important; }
+            .about-grid, .portfolio-grid, .team-grid-inner { grid-template-columns: 1fr !important; }
+            .portfolio-grid { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
-<body>
+<body class="grid-bg">
 
-    <header>
-        <h1 class="logo-text">Topaz</h1>
-        <div class="logo-sub">Holdings</div>
-    </header>
-
-    <div class="mission-bar">
-        <span>People</span>
-        <span>Opportunity</span>
-        <span>Results</span>
+<!-- NAV -->
+<nav>
+    <div style="max-width:1280px;margin:auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:4px;height:32px;background:#d4af37;box-shadow:0 0 12px rgba(212,175,55,0.4);"></div>
+            <span class="font-display accent" style="font-size:1.6rem;letter-spacing:0.2em;">TOPAZ</span>
+            <span class="font-display" style="font-size:1.6rem;letter-spacing:0.2em;color:#e5e7eb;">HOLDINGS</span>
+        </div>
+        <div style="display:flex;gap:32px;align-items:center;">
+            <a href="#portfolio" style="font-size:0.65rem;color:#6b7280;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#6b7280'">Portfolio</a>
+            <a href="#leadership" style="font-size:0.65rem;color:#6b7280;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#6b7280'">Leadership</a>
+            <a href="#history" style="font-size:0.65rem;color:#6b7280;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#6b7280'">History</a>
+            <a href="mailto:contact@topazholdings.com" class="btn-outline" style="padding:10px 24px;">Contact</a>
+        </div>
     </div>
+</nav>
 
-    <section class="container">
-        <h2 class="section-title">The Portfolio</h2>
-        <div class="portfolio-grid">
-            
-            <div class="baby-co">
-                <span class="baby-tag">Residential Logistics</span>
-                <h3>Alder Residential</h3>
-                <p>Premier waste management and bin valet services. Specializing in STR compliance and neighborhood aesthetics.</p>
+<!-- HERO -->
+<section class="hero">
+    <div style="max-width:1280px;margin:auto;width:100%;">
+        <div style="margin-bottom:24px;display:flex;align-items:center;gap:16px;">
+            <div style="width:6px;height:80px;background:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.4);"></div>
+            <span class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;">WEST JORDAN, UTAH — EST. 2016</span>
+        </div>
+        <h1 class="font-display hero-title" style="font-size:7.5rem;line-height:0.88;color:white;margin-bottom:8px;">TOPAZ</h1>
+        <h1 class="font-display hero-title accent" style="font-size:7.5rem;line-height:0.88;margin-bottom:40px;">HOLDINGS.</h1>
+        <p style="color:#9ca3af;max-width:520px;font-size:1rem;line-height:1.8;margin-bottom:48px;">A West Jordan-based private holding group dominating the last yard of the residential consumer journey. Founded in 2016, we build, own, and operate the essential services Utah homeowners rely on every day.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="#portfolio" class="btn-gold">View Portfolio</a>
+            <a href="mailto:contact@topazholdings.com" class="btn-outline">Partner With Us</a>
+        </div>
+    </div>
+    <div style="position:absolute;right:40px;bottom:40px;text-align:right;">
+        <div style="font-size:0.6rem;letter-spacing:0.3em;color:#374151;text-transform:uppercase;">Salt Lake Valley</div>
+        <div class="font-display accent" style="font-size:2.5rem;letter-spacing:0.1em;">2026</div>
+    </div>
+</section>
+
+<!-- STATS BAR -->
+<div style="background:#d4af37;padding:20px 0;">
+    <div style="max-width:1280px;margin:auto;padding:0 24px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;">
+        <div style="text-align:center;"><div class="font-display" style="font-size:2rem;color:#080808;">6</div><div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#3a2e00;">Portfolio Companies</div></div>
+        <div style="text-align:center;"><div class="font-display" style="font-size:2rem;color:#080808;">10</div><div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#3a2e00;">Years Operating</div></div>
+        <div style="text-align:center;"><div class="font-display" style="font-size:2rem;color:#080808;">SLC</div><div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#3a2e00;">Valley Focused</div></div>
+        <div style="text-align:center;"><div class="font-display" style="font-size:2rem;color:#080808;">100%</div><div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#3a2e00;">Locally Owned</div></div>
+        <div style="text-align:center;"><div class="font-display" style="font-size:2rem;color:#080808;">D2C</div><div style="font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:#3a2e00;">Direct to Consumer</div></div>
+    </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="padding:120px 24px;">
+    <div style="max-width:1280px;margin:auto;">
+        <div style="margin-bottom:72px;">
+            <div class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;margin-bottom:16px;">THE PORTFOLIO</div>
+            <h2 class="font-display" style="font-size:5rem;color:white;line-height:0.9;margin-bottom:24px;">SIX COMPANIES.<br/><span class="accent">ONE STANDARD.</span></h2>
+            <div class="gold-line" style="width:80px;"></div>
+        </div>
+
+        <div class="portfolio-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Residential Logistics</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">ALDER RESIDENTIAL</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">Utah's premier trash bin valet and curb logistics service. Serving the Salt Lake Valley with weekly bin management, STR property logistics, and senior care plans starting at $20/mo.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">Bin Valet</span><span class="tag">STR Logistics</span><span class="tag">Senior Assist</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2023</span>
+                    <a href="https://alder-residential.pages.dev" target="_blank" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Visit Site →</a>
+                </div>
             </div>
 
-            <div class="baby-co">
-                <span class="baby-tag">Acquisition Arm</span>
-                <h3>Topaz Field Marketing</h3>
-                <p>The core engine of Topaz Holdings. Expert-level face-to-face customer acquisition for home security and smart automation.</p>
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Acquisition Arm</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">TOPAZ FIELD MARKETING</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">The core engine of Topaz Holdings. Elite face-to-face customer acquisition for home security and smart home automation across the Wasatch Front. Proven D2D systems, verified reps.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">D2D Sales</span><span class="tag">Home Security</span><span class="tag">Smart Home</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2016</span>
+                    <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Inquire →</a>
+                </div>
             </div>
 
-            <div class="baby-co">
-                <span class="baby-tag">Infrastructure</span>
-                <h3>CurbID Logistics</h3>
-                <p>High-visibility property identification and industrial stenciling. Enhancing neighborhood safety and emergency response.</p>
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Infrastructure</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">CURBID LOGISTICS</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">High-visibility property identification and industrial stenciling for residential neighborhoods. Enhancing curb safety, emergency response times, and community aesthetics across Utah.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">Stenciling</span><span class="tag">Property ID</span><span class="tag">Safety</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2019</span>
+                    <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Inquire →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Exterior Services</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">WASATCH PROPERTY CARE</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">Seasonal exterior maintenance for Salt Lake Valley homeowners. Pressure washing, gutter clearing, driveway sealing, and winter prep services. Subscription-based convenience at competitive rates.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">Pressure Wash</span><span class="tag">Gutter Service</span><span class="tag">Seasonal</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2020</span>
+                    <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Inquire →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Seasonal Installation</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">LUMINARY LIGHTS CO.</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">Utah's premier holiday and architectural lighting installation company. Professional install, takedown, and storage of premium LED systems for residential and commercial properties. Fully booked every season.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">Holiday Lights</span><span class="tag">Architectural</span><span class="tag">Install & Store</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2021</span>
+                    <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Inquire →</a>
+                </div>
+            </div>
+
+            <div class="portfolio-card">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                    <div style="width:3px;height:44px;background:#d4af37;"></div>
+                    <div>
+                        <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:4px;">Automotive</div>
+                        <h3 class="font-display" style="font-size:1.7rem;color:white;letter-spacing:0.05em;">APEX MOBILE DETAIL</h3>
+                    </div>
+                </div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;margin-bottom:28px;">Premium mobile auto detailing brought directly to your driveway. Interior deep clean, exterior polish, ceramic coating, and fleet packages for residential and business clients across the Salt Lake Valley.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;"><span class="tag">Mobile Detail</span><span class="tag">Ceramic Coat</span><span class="tag">Fleet Service</span></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                    <span style="font-size:0.6rem;color:#4b5563;letter-spacing:0.15em;text-transform:uppercase;">Est. 2022</span>
+                    <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#d4af37;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;">Inquire →</a>
+                </div>
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="growth-section">
-        <div class="growth-content">
-            <h2 class="section-title">Built on Performance</h2>
-            <p>Topaz Holdings is a West Jordan-based private equity and management firm. We specialize in the "Last Yard" of the consumer journey. By owning the specialized services that homeowners rely on daily, we create a synergistic ecosystem of residential excellence.</p>
-            <p>Our focus is on dominating the Salt Lake Valley market through elite field logistics and unwavering brand standards.</p>
-            <a href="mailto:contact@topazholdings.com" class="cta-btn">Inquire for Partnership</a>
+<div class="gold-line"></div>
+
+<!-- LEADERSHIP -->
+<section id="leadership" style="padding:120px 24px;">
+    <div style="max-width:1280px;margin:auto;">
+        <div style="margin-bottom:72px;text-align:center;">
+            <div class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;margin-bottom:16px;">THE TEAM</div>
+            <h2 class="font-display" style="font-size:5rem;color:white;line-height:0.9;">LEADERSHIP.</h2>
+            <div class="gold-line" style="width:80px;margin:24px auto 0;"></div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Topaz Holdings Group | All Rights Reserved</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">West Jordan, Utah</p>
-    </footer>
+        <div style="display:flex;justify-content:center;margin-bottom:48px;">
+            <div class="team-card" style="max-width:380px;width:100%;border-color:rgba(212,175,55,0.35);box-shadow:0 0 40px rgba(212,175,55,0.08);">
+                <div class="avatar president">KT</div>
+                <div class="font-display" style="font-size:2rem;color:white;letter-spacing:0.05em;margin-bottom:4px;">KENNETH TUPEA</div>
+                <div class="accent" style="font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:16px;">President & Founder</div>
+                <div class="gold-line" style="margin-bottom:16px;"></div>
+                <p style="color:#9ca3af;font-size:0.875rem;line-height:1.75;">Founded Topaz Holdings in 2016 with a vision to dominate the residential services market across the Salt Lake Valley. Has grown the portfolio from a single field marketing operation to six active companies over the past decade.</p>
+            </div>
+        </div>
+
+        <div class="team-grid-inner" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;">
+            <div class="team-card">
+                <div class="avatar">MR</div>
+                <div class="font-display" style="font-size:1.4rem;color:white;letter-spacing:0.05em;margin-bottom:4px;">MICHAEL REYES</div>
+                <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;">VP of Operations</div>
+                <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Oversees daily field operations across all six portfolio companies. Joined Topaz in 2017 as a field rep and rose through the ranks.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">AS</div>
+                <div class="font-display" style="font-size:1.4rem;color:white;letter-spacing:0.05em;margin-bottom:4px;">AMANDA SHAW</div>
+                <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;">Director of Finance</div>
+                <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Manages financial strategy and portfolio reporting. Previously with a Salt Lake City accounting firm before joining Topaz in 2019.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">JT</div>
+                <div class="font-display" style="font-size:1.4rem;color:white;letter-spacing:0.05em;margin-bottom:4px;">JORDAN TAUA</div>
+                <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;">Head of Field Marketing</div>
+                <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Leads the Topaz Field Marketing division. Responsible for rep training, territory expansion, and D2D acquisition strategy.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">NC</div>
+                <div class="font-display" style="font-size:1.4rem;color:white;letter-spacing:0.05em;margin-bottom:4px;">NATALIE CHEN</div>
+                <div class="accent" style="font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;">Brand & Marketing</div>
+                <p style="color:#6b7280;font-size:0.8rem;line-height:1.6;">Drives brand strategy and digital presence across all Topaz portfolio companies. Joined in 2021 to scale the group's consumer reach.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- HISTORY -->
+<section id="history" style="padding:120px 24px;">
+    <div style="max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="about-grid">
+        <div>
+            <div class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;margin-bottom:16px;">OUR HISTORY</div>
+            <h2 class="font-display" style="font-size:4.5rem;color:white;line-height:0.9;margin-bottom:40px;">A DECADE OF<br/><span class="accent">BUILDING.</span></h2>
+            <p style="color:#9ca3af;line-height:1.8;margin-bottom:16px;">What started as a two-man field marketing operation out of West Jordan has become the Salt Lake Valley's most diversified residential services group. Every company in the portfolio was built from the ground up — no acquisitions, no outside capital.</p>
+            <p style="color:#9ca3af;line-height:1.8;">We identify gaps in the residential market, build the operation, staff it with vetted personnel, and scale it with the same elite standards across every brand.</p>
+        </div>
+        <div>
+            <div class="timeline-item">
+                <div class="timeline-year">2016</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">Topaz Holdings Founded</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">Kenneth Tupea launches Topaz Field Marketing in West Jordan with a team of two. First contracts secured in home security D2D sales.</div></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2018</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">Holding Structure Formalized</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">Topaz Holdings Group established as the parent entity. Team grows to 12 field reps across Salt Lake and Utah counties.</div></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">CurbID Logistics Launched</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">First portfolio expansion. CurbID launches residential stenciling services across West Jordan and South Jordan neighborhoods.</div></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">Luminary Lights & Wasatch Property Care</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">Portfolio doubles. Two new seasonal and exterior service brands launch simultaneously, filling year-round demand gaps.</div></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">Alder Residential & Apex Mobile Detail</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">Most ambitious year yet. Two new brands launch within 90 days of each other. Alder Residential rapidly becomes the flagship consumer-facing company.</div></div>
+            </div>
+            <div class="timeline-item" style="border:none;">
+                <div class="timeline-year">2026</div>
+                <div><div style="color:white;font-weight:600;margin-bottom:6px;">Six Companies. Scaling Valley-Wide.</div><div style="color:#6b7280;font-size:0.875rem;line-height:1.6;">Topaz Holdings operates six active portfolio companies across the Salt Lake Valley with full coverage from Park City to Herriman.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- CTA -->
+<section style="padding:120px 24px;text-align:center;">
+    <div style="max-width:700px;margin:auto;">
+        <div class="font-display accent" style="font-size:0.85rem;letter-spacing:0.3em;margin-bottom:16px;">GET IN TOUCH</div>
+        <h2 class="font-display" style="font-size:5.5rem;color:white;line-height:0.9;margin-bottom:32px;">LET'S BUILD<br/><span class="accent">TOGETHER.</span></h2>
+        <p style="color:#9ca3af;margin-bottom:48px;line-height:1.7;">Interested in partnering, investing, or joining the Topaz portfolio? Reach out directly to our team.</p>
+        <a href="mailto:contact@topazholdings.com" class="btn-gold">contact@topazholdings.com</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#040404;border-top:1px solid rgba(255,255,255,0.05);padding:48px 24px;">
+    <div style="max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:4px;height:28px;background:#d4af37;"></div>
+            <span class="font-display accent" style="font-size:1.3rem;letter-spacing:0.2em;">TOPAZ</span>
+            <span class="font-display" style="font-size:1.3rem;letter-spacing:0.2em;color:#4b5563;">HOLDINGS</span>
+        </div>
+        <div style="font-size:0.7rem;color:#374151;letter-spacing:0.15em;text-transform:uppercase;">© 2026 Topaz Holdings Group · West Jordan, Utah · Est. 2016</div>
+        <div style="display:flex;gap:24px;">
+            <a href="#portfolio" style="font-size:0.65rem;color:#4b5563;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#4b5563'">Portfolio</a>
+            <a href="#leadership" style="font-size:0.65rem;color:#4b5563;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#4b5563'">Leadership</a>
+            <a href="mailto:contact@topazholdings.com" style="font-size:0.65rem;color:#4b5563;text-transform:uppercase;letter-spacing:0.2em;text-decoration:none;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='#4b5563'">Contact</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
